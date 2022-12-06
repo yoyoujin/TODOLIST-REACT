@@ -17,5 +17,5 @@ export default function AddTodo({ onAdd }) {
       <input type='text' placeholder='Add Todo' value={text} onChange={handleChange} />
       <button>Add</button>
     </form>
-  );
+  ); 
 }
