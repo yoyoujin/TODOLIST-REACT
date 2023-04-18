@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header({ filters, filter, onFilterChange }) {
+const Header = ({ filter, filters, onFilterChange }) => {
   return (
     <header>
       <ul>
@@ -12,4 +12,6 @@ export default function Header({ filters, filter, onFilterChange }) {
       </ul>
     </header>
   );
-}
+};
+
+export default Header;

@@ -1,24 +1,30 @@
-import { FiTrash } from 'react-icons/fi';
+import React, { useState } from 'react';
+import { FaTrash } from 'react-icons/fa';
 
-export default function Todo({ todo, onUpdate, onDelete }) {
+const Todo = ({ todo, onUpdate, onDelete }) => {
   const { text, status } = todo;
   const handleChange = (e) => {
     const status = e.target.checked ? 'completed' : 'active';
     onUpdate({ ...todo, status });
   };
-  const handleDelete = () => onDelete(todo);
+  const hadleDelete = () => onDelete(todo);
+
   return (
-    <li>
-      <input
-        type='checkbox'
-        id='checkbox'
-        checked={status === 'completed'}
-        onChange={handleChange}
-      />
-      <label htmlFor='checkbox'>{text}</label>
-      <button onClick={handleDelete}>
-        <FiTrash />
-      </button>
-    </li>
+    <>
+      <li key={todo.id}>
+        <input
+          type='checkbox'
+          id='checkbox'
+          checked={status === 'completed'}
+          onChange={handleChange}
+        />
+        <label htmlFor='checkbox'>{text}</label>
+        <button onClick={hadleDelete}>
+          <FaTrash />
+        </button>
+      </li>
+    </>
   );
-}
+};
+
+export default Todo;

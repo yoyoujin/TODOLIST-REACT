@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function AddTodo({ onAdd }) {
+const AddTodo = ({ onAdd }) => {
   const [text, setText] = useState('');
   const handleChange = (e) => setText(e.target.value);
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim().length === 0) {
-      return;
-    }
+    if (text.trim().length === 0) return;
     onAdd({ id: uuidv4(), text, status: 'active' });
     setText('');
   };
@@ -17,5 +15,7 @@ export default function AddTodo({ onAdd }) {
       <input type='text' placeholder='Add Todo' value={text} onChange={handleChange} />
       <button>Add</button>
     </form>
-  ); 
-}
+  );
+};
+
+export default AddTodo;
